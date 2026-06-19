@@ -2,22 +2,32 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Candidate FAQ — AlphaMan</title>
+<title>Candidate Knowledge Base — AlphaMan</title>
 <style>
-:root { --primary: #2563eb; --dark: #1e293b; --light: #f8fafc; --orange: #ea580c; }
+:root { --primary: #2563eb; --dark: #1e293b; --light: #f8fafc; --orange: #ea580c; --teal: #0d9488; }
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--light); color: var(--dark); display:flex; flex-direction:column; min-height:100vh; line-height:1.7; }
-.header { background: var(--dark); color: white; padding: 0 24px; display:flex; align-items:center; justify-content:space-between; height:64px; flex-shrink:0; }
+body { font-family:'Segoe UI',system-ui,sans-serif; background:var(--light); color:var(--dark); display:flex; flex-direction:column; min-height:100vh; line-height:1.7; }
+.header { background:var(--dark); color:white; padding:0 24px; display:flex; align-items:center; justify-content:space-between; height:64px; flex-shrink:0; }
 .header .logo { font-size:1.3em; font-weight:700; color:var(--primary); text-decoration:none; }
 .header nav { display:flex; gap:24px; }
 .header nav a { color:#cbd5e1; text-decoration:none; font-size:.9em; }
 .header nav a:hover { color:white; }
-.main { flex:1; padding:60px 24px; max-width:800px; margin:0 auto; width:100%; }
-h1 { font-size:2em; color:var(--dark); margin-bottom:16px; }
-p { color:#475569; margin-bottom:14px; font-size:1.05em; }
-.placeholder { background:white; border-radius:12px; padding:32px; box-shadow:0 2px 12px rgba(0,0,0,0.06); margin-top:24px; }
-.placeholder p { color:#94a3b8; font-style:italic; }
-.btn-primary { display:inline-block; padding:12px 24px; background:var(--orange); color:white; text-decoration:none; border-radius:8px; font-weight:600; margin-top:12px; }
+.main { flex:1; padding:60px 24px; max-width:750px; margin:0 auto; width:100%; }
+h1 { font-size:2em; color:var(--dark); margin-bottom:8px; }
+.subtitle { color:#64748b; margin-bottom:32px; font-size:1.05em; }
+h2 { color:var(--primary); margin:28px 0 12px; font-size:1.3em; }
+h3 { color:var(--dark); margin:20px 0 8px; }
+p,li { color:#475569; margin-bottom:14px; }
+ul,ol { margin:10px 0 20px 20px; }
+.card-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:20px; margin:20px 0; }
+.card { background:white; border-radius:12px; padding:24px; box-shadow:0 2px 12px rgba(0,0,0,0.06); }
+.card h3 { color:var(--dark); margin-bottom:6px; }
+.card p { font-size:.9em; }
+table { width:100%; border-collapse:collapse; margin:16px 0 24px; background:white; border-radius:10px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,0.06); }
+th,td { padding:14px 16px; text-align:left; border-bottom:1px solid #e2e8f0; }
+th { background:var(--dark); color:white; font-size:.9em; }
+td { font-size:.95em; }
+.btn { display:inline-block; padding:12px 28px; background:var(--orange); color:white; text-decoration:none; border-radius:8px; font-weight:600; margin-top:12px; }
 .footer { background:var(--dark); color:#94a3b8; text-align:center; padding:20px 24px; font-size:.85em; flex-shrink:0; }
 .footer a { color:var(--primary); text-decoration:none; margin:0 8px; }
 </style>
@@ -28,17 +38,36 @@ p { color:#475569; margin-bottom:14px; font-size:1.05em; }
   <nav>
     <a href="./">Home</a>
     <a href="hire.html">Hire Talent</a>
+    <a href="job-listings.html">Jobs</a>
+    <a href="submit-cv.html">Submit CV</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
     <a href="privacy.html">Privacy</a>
-    <a href="terms.html">Terms</a>
   </nav>
 </header>
 <main class="main">
-<h1>Candidate FAQ</h1>
-<p>Common questions about working with AlphaMan: how matching works, fees, timeline, and data privacy.</p>
-<div class="placeholder">
-  <p>Full content for this page is being prepared. This placeholder establishes the page structure for the AlphaMan HR portal.</p>
-  <a href="hire.html" class="btn-primary">Submit a Hiring Request →</a>
-</div>
+
+<h1>Candidate Knowledge Base</h1>
+<p class="subtitle">Professional answers to common questions about AlphaMan's recruitment process.</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>How does resume parsing work?</h3>
+<p>AlphaMan's NLP engine extracts structured data from your submitted resume: employment history timeline, skill taxonomy, certifications, education credentials, and language proficiencies. This data populates your anonymized candidate profile used for matching. The parsing process is automated and typically completes within 5 minutes of submission.</p>
+
+<h3>How is my data protected?</h3>
+<p>Your profile data is stored in AlphaMan's encrypted infrastructure. Your identity and current employer information remain confidential. Your anonymized profile is only shared with hiring organizations after you explicitly approve each individual match. Full compliance with Singapore's PDPA and regional data protection regulations is maintained at all times.</p>
+
+<h3>What is the typical response timeline?</h3>
+<p>After profile submission, our AI engine begins matching against active requisitions immediately. Initial match results are typically available within 48 hours. If a match is identified, you receive a notification with role details. The full recruitment cycle — from match notification to offer acceptance — averages 3-6 weeks depending on role complexity and interview scheduling.</p>
+
+<h3>What interview preparation is provided?</h3>
+<p>When a match is confirmed, AlphaMan provides you with: a detailed role brief including team structure and reporting lines, the hiring organization's interview format and assessment criteria, and suggested preparation topics based on the specific requirements of the position. For executive-level placements, a dedicated consultant provides interview coaching and feedback throughout the process.</p>
+
+<h3>What criteria determine my profile matches?</h3>
+<p>Our matching engine evaluates five primary dimensions: technical skill alignment with role requirements, professional experience relevance, industry and domain adjacency, career progression trajectory, and certification/credential validation. The composite match score determines shortlist inclusion. Your profile can match multiple positions simultaneously, and you retain full control over which opportunities to pursue.</p>
+
+<a href="submit-cv.html" class="btn">Submit Your Profile →</a>
 </main>
 <footer class="footer">
   AlphaMan — AI-Vetted Talent Solutions &copy; 2026 &nbsp;|&nbsp;

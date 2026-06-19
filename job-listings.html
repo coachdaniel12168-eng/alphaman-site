@@ -2,22 +2,32 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Job Listings — AlphaMan</title>
+<title>Premium Corporate Job Listings — AlphaMan</title>
 <style>
-:root { --primary: #2563eb; --dark: #1e293b; --light: #f8fafc; --orange: #ea580c; }
+:root { --primary: #2563eb; --dark: #1e293b; --light: #f8fafc; --orange: #ea580c; --teal: #0d9488; }
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--light); color: var(--dark); display:flex; flex-direction:column; min-height:100vh; line-height:1.7; }
-.header { background: var(--dark); color: white; padding: 0 24px; display:flex; align-items:center; justify-content:space-between; height:64px; flex-shrink:0; }
+body { font-family:'Segoe UI',system-ui,sans-serif; background:var(--light); color:var(--dark); display:flex; flex-direction:column; min-height:100vh; line-height:1.7; }
+.header { background:var(--dark); color:white; padding:0 24px; display:flex; align-items:center; justify-content:space-between; height:64px; flex-shrink:0; }
 .header .logo { font-size:1.3em; font-weight:700; color:var(--primary); text-decoration:none; }
 .header nav { display:flex; gap:24px; }
 .header nav a { color:#cbd5e1; text-decoration:none; font-size:.9em; }
 .header nav a:hover { color:white; }
 .main { flex:1; padding:60px 24px; max-width:800px; margin:0 auto; width:100%; }
-h1 { font-size:2em; color:var(--dark); margin-bottom:16px; }
-p { color:#475569; margin-bottom:14px; font-size:1.05em; }
-.placeholder { background:white; border-radius:12px; padding:32px; box-shadow:0 2px 12px rgba(0,0,0,0.06); margin-top:24px; }
-.placeholder p { color:#94a3b8; font-style:italic; }
-.btn-primary { display:inline-block; padding:12px 24px; background:var(--orange); color:white; text-decoration:none; border-radius:8px; font-weight:600; margin-top:12px; }
+h1 { font-size:2em; color:var(--dark); margin-bottom:8px; }
+.subtitle { color:#64748b; margin-bottom:32px; font-size:1.05em; }
+h2 { color:var(--primary); margin:28px 0 12px; font-size:1.3em; }
+h3 { color:var(--dark); margin:20px 0 8px; }
+p,li { color:#475569; margin-bottom:14px; }
+ul,ol { margin:10px 0 20px 20px; }
+.card-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:20px; margin:20px 0; }
+.card { background:white; border-radius:12px; padding:24px; box-shadow:0 2px 12px rgba(0,0,0,0.06); }
+.card h3 { color:var(--dark); margin-bottom:6px; }
+.card p { font-size:.9em; }
+table { width:100%; border-collapse:collapse; margin:16px 0 24px; background:white; border-radius:10px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,0.06); }
+th,td { padding:14px 16px; text-align:left; border-bottom:1px solid #e2e8f0; }
+th { background:var(--dark); color:white; font-size:.9em; }
+td { font-size:.95em; }
+.btn { display:inline-block; padding:12px 28px; background:var(--orange); color:white; text-decoration:none; border-radius:8px; font-weight:600; margin-top:12px; }
 .footer { background:var(--dark); color:#94a3b8; text-align:center; padding:20px 24px; font-size:.85em; flex-shrink:0; }
 .footer a { color:var(--primary); text-decoration:none; margin:0 8px; }
 </style>
@@ -28,17 +38,26 @@ p { color:#475569; margin-bottom:14px; font-size:1.05em; }
   <nav>
     <a href="./">Home</a>
     <a href="hire.html">Hire Talent</a>
+    <a href="job-listings.html">Jobs</a>
+    <a href="submit-cv.html">Submit CV</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
     <a href="privacy.html">Privacy</a>
-    <a href="terms.html">Terms</a>
   </nav>
 </header>
 <main class="main">
-<h1>Current Job Openings</h1>
-<p>Browse AI-matched job openings from Singapore's top employers. Filter by industry, role, and seniority.</p>
-<div class="placeholder">
-  <p>Full content for this page is being prepared. This placeholder establishes the page structure for the AlphaMan HR portal.</p>
-  <a href="hire.html" class="btn-primary">Submit a Hiring Request →</a>
+
+<h1>Premium Corporate Job Listings</h1>
+<p class="subtitle">Current positions from our enterprise client network. All roles are pre-vetted and active — apply through the AlphaMan matching engine for priority consideration.</p>
+
+<div class="card-grid">
+  <div class="card"><h3>Senior AI Engineer</h3><p><strong>Industry:</strong> Technology / Enterprise SaaS<br><strong>Location:</strong> Singapore (Hybrid)<br><strong>Compensation:</strong> $150,000 – $200,000 SGD</p><p>Lead development of production ML pipelines. PyTorch, MLOps, distributed systems experience required.</p><a href="submit-cv.html" class="btn" style="font-size:.9em;padding:10px 20px;">Apply via AlphaMan Engine →</a></div>
+  <div class="card"><h3>Director of Corporate Operations</h3><p><strong>Industry:</strong> Financial Services<br><strong>Location:</strong> Singapore (CBD)<br><strong>Compensation:</strong> $200,000 – $280,000 SGD</p><p>Oversee regional operations across APAC. 12+ years operational leadership, P&L management experience required.</p><a href="submit-cv.html" class="btn" style="font-size:.9em;padding:10px 20px;">Apply via AlphaMan Engine →</a></div>
+  <div class="card"><h3>VP Enterprise Sales (APAC)</h3><p><strong>Industry:</strong> Enterprise Software<br><strong>Location:</strong> Singapore (Regional)<br><strong>Compensation:</strong> $220,000 – $320,000 SGD + OTE</p><p>Build and lead APAC enterprise sales team. $5M+ quota experience, C-suite network required.</p><a href="submit-cv.html" class="btn" style="font-size:.9em;padding:10px 20px;">Apply via AlphaMan Engine →</a></div>
+  <div class="card"><h3>Head of Risk & Compliance</h3><p><strong>Industry:</strong> Digital Banking<br><strong>Location:</strong> Singapore<br><strong>Compensation:</strong> $180,000 – $240,000 SGD</p><p>Lead compliance function for licensed digital bank. MAS regulatory expertise, AML/KYC framework experience required.</p><a href="submit-cv.html" class="btn" style="font-size:.9em;padding:10px 20px;">Apply via AlphaMan Engine →</a></div>
 </div>
+
+<a href="submit-cv.html" class="btn">View All Listings & Submit CV →</a>
 </main>
 <footer class="footer">
   AlphaMan — AI-Vetted Talent Solutions &copy; 2026 &nbsp;|&nbsp;
