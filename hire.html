@@ -38,12 +38,12 @@ body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--light);
 <body>
 
 <header class="header">
-  <a href="/" class="logo">AlphaMan</a>
+  <a href="./" class="logo">AlphaMan</a>
   <nav>
-    <a href="/">Home</a>
-    <a href="/hire.html">Hire Talent</a>
-    <a href="/privacy.html">Privacy</a>
-    <a href="/terms.html">Terms</a>
+    <a href="./">Home</a>
+    <a href="hire.html">Hire Talent</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
   </nav>
 </header>
 
@@ -79,7 +79,7 @@ body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--light);
 
 <footer class="footer">
   AlphaMan — AI-Vetted Talent Solutions &copy; 2026 &nbsp;|&nbsp;
-  <a href="/privacy.html">Privacy</a> <a href="/terms.html">Terms</a>
+  <a href="privacy.html">Privacy</a> <a href="terms.html">Terms</a>
 </footer>
 
 <script>
@@ -87,7 +87,7 @@ document.getElementById('hireForm').addEventListener('submit', function(e) {
   e.preventDefault();
   document.getElementById('hireForm').style.display = 'none';
   document.getElementById('successMsg').classList.add('show');
-  setTimeout(function() { window.location.href = '/success.html'; }, 2500);
+  setTimeout(function() { window.location.href = 'success.html'; }, 2500);
 });
 </script>
 </body>
