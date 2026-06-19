@@ -4,7 +4,7 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Permanent Recruitment — AlphaMan</title>
 <style>
-:root { --primary: #2563eb; --dark: #1e293b; --light: #f8fafc; --orange: #ea580c; }
+:root { --primary: #2563eb; --dark: #1e293b; --light: #f8fafc; --orange: #ea580c; --teal: #0d9488; }
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--light); color: var(--dark); display:flex; flex-direction:column; min-height:100vh; line-height:1.7; }
 .header { background: var(--dark); color: white; padding: 0 24px; display:flex; align-items:center; justify-content:space-between; height:64px; flex-shrink:0; }
@@ -12,12 +12,20 @@ body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--light);
 .header nav { display:flex; gap:24px; }
 .header nav a { color:#cbd5e1; text-decoration:none; font-size:.9em; }
 .header nav a:hover { color:white; }
-.main { flex:1; padding:60px 24px; max-width:800px; margin:0 auto; width:100%; }
-h1 { font-size:2em; color:var(--dark); margin-bottom:16px; }
-p { color:#475569; margin-bottom:14px; font-size:1.05em; }
-.placeholder { background:white; border-radius:12px; padding:32px; box-shadow:0 2px 12px rgba(0,0,0,0.06); margin-top:24px; }
-.placeholder p { color:#94a3b8; font-style:italic; }
-.btn-primary { display:inline-block; padding:12px 24px; background:var(--orange); color:white; text-decoration:none; border-radius:8px; font-weight:600; margin-top:12px; }
+.main { flex:1; padding:60px 24px; max-width:850px; margin:0 auto; width:100%; }
+h1 { font-size:2em; color:var(--dark); margin-bottom:8px; }
+.subtitle { color:#64748b; margin-bottom:32px; font-size:1.05em; }
+h2 { color:var(--primary); margin:28px 0 12px; font-size:1.3em; }
+p { color:#475569; margin-bottom:14px; }
+table { width:100%; border-collapse:collapse; margin:16px 0 24px; background:white; border-radius:10px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,0.06); }
+th, td { padding:14px 16px; text-align:left; border-bottom:1px solid #e2e8f0; }
+th { background:var(--dark); color:white; font-size:.9em; }
+td { font-size:.95em; }
+.promo { background:linear-gradient(135deg, var(--teal), #0f766e); color:white; padding:24px 28px; border-radius:12px; margin:24px 0; }
+.promo h3 { font-size:1.2em; margin-bottom:6px; }
+.promo p { color:rgba(255,255,255,0.9); margin:0; }
+.btn-pay { display:inline-block; padding:12px 28px; background:white; color:var(--teal); text-decoration:none; border-radius:8px; font-weight:700; margin-top:12px; }
+.btn-pay:hover { background:#f0fdfa; }
 .footer { background:var(--dark); color:#94a3b8; text-align:center; padding:20px 24px; font-size:.85em; flex-shrink:0; }
 .footer a { color:var(--primary); text-decoration:none; margin:0 8px; }
 </style>
@@ -28,18 +36,48 @@ p { color:#475569; margin-bottom:14px; font-size:1.05em; }
   <nav>
     <a href="./">Home</a>
     <a href="hire.html">Hire Talent</a>
+    <a href="job-listings.html">Jobs</a>
+    <a href="submit-cv.html">Submit CV</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
     <a href="privacy.html">Privacy</a>
-    <a href="terms.html">Terms</a>
   </nav>
 </header>
+
 <main class="main">
-<h1>Permanent Recruitment Solutions</h1>
-<p>Find full-time permanent hires through AlphaMan's AI-vetted screening process. We match your company culture and requirements with pre-screened candidates ready for long-term roles.</p>
-<div class="placeholder">
-  <p>Full content for this page is being prepared. This placeholder establishes the page structure for the AlphaMan HR portal.</p>
-  <a href="hire.html" class="btn-primary">Submit a Hiring Request →</a>
+<h1>Standard Permanent Placement</h1>
+<p class="subtitle">One-time placement fee model. Pay only when we successfully place a candidate. No retainer, no monthly fees.</p>
+
+<div class="promo">
+  <h3>Special New Client Offer</h3>
+  <p>Enjoy a 25% discount for the first three months of your onboarding window. All placements made during this period are billed at the reduced rate.</p>
+  <a href="hire.html" class="btn-pay">Start Free Diagnostic →</a>
 </div>
+
+<h2>Placement Fee Schedule</h2>
+<table>
+<tr><th>Role Level</th><th>Annual Salary Range (SGD)</th><th>Standard Fee</th><th>New Client Fee (25% off)</th></tr>
+<tr><td>Junior / Entry-Level</td><td>$30,000 – $60,000</td><td>15% of annual salary</td><td>11.25% of annual salary</td></tr>
+<tr><td>Mid-Level / Professional</td><td>$60,000 – $120,000</td><td>18% of annual salary</td><td>13.5% of annual salary</td></tr>
+<tr><td>Senior / Specialist</td><td>$120,000 – $200,000</td><td>20% of annual salary</td><td>15% of annual salary</td></tr>
+<tr><td>Director / Head of Dept</td><td>$200,000 – $350,000</td><td>22% of annual salary</td><td>16.5% of annual salary</td></tr>
+</table>
+
+<h2>Payment Processing</h2>
+<p>All placement fees are processed securely through <strong>AIRWALLEX</strong>, our official corporate payment gateway. Invoices are generated upon successful candidate acceptance and are payable within 30 days.</p>
+<p>Replacement guarantee: If a placed candidate leaves within 90 days, we provide one free replacement search at no additional cost.</p>
+
+<h2>What's Included</h2>
+<ul style="margin:10px 0 20px 20px; color:#475569;">
+  <li>AI-powered candidate screening across 40+ dimensions</li>
+  <li>Initial shortlist delivered within 5 business days</li>
+  <li>Interview coordination and scheduling</li>
+  <li>Reference and background verification</li>
+  <li>90-day replacement guarantee</li>
+  <li>Onboarding support documentation</li>
+</ul>
 </main>
+
 <footer class="footer">
   AlphaMan — AI-Vetted Talent Solutions &copy; 2026 &nbsp;|&nbsp;
   <a href="privacy.html">Privacy</a> <a href="terms.html">Terms</a>
