@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Website & SEO Audit — AlphaMan</title>
+<style>
+:root { --primary: #2563eb; --dark: #1e293b; --light: #f8fafc; --teal: #0d9488; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--light); color: var(--dark); min-height: 100vh; }
+.container { max-width: 600px; margin: 0 auto; padding: 40px 24px; }
+.header { background: linear-gradient(135deg, var(--dark), #0f172a); color: white; padding: 40px 0; text-align: center; }
+.header h1 { font-size: 1.8em; margin-bottom: 8px; }
+.header p { opacity: 0.85; font-size: 1em; }
+.card { background: white; border-radius: 16px; padding: 32px; box-shadow: 0 2px 20px rgba(0,0,0,0.08); margin-top: 24px; }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-weight: 600; margin-bottom: 6px; color: var(--dark); }
+.form-group input { width: 100%; padding: 12px 16px; border: 2px solid #e2e8f0; border-radius: 10px; font-size: 1em; transition: border .2s; }
+.form-group input:focus { outline: none; border-color: var(--primary); }
+.btn { width: 100%; padding: 14px; background: var(--teal); color: white; border: none; border-radius: 10px; font-size: 1.1em; font-weight: 600; cursor: pointer; margin-top: 8px; transition: background .2s; }
+.btn:hover { background: #0f766e; }
+.success { display: none; background: #d1fae5; color: #065f46; padding: 16px; border-radius: 10px; text-align: center; margin-top: 16px; font-weight: 600; }
+.success.show { display: block; }
+.brand { text-align: center; margin-top: 24px; color: #94a3b8; font-size: .85em; }
+.logo-text { font-weight: 700; color: var(--primary); font-size: 1.2em; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="container">
+    <h1>Get Your Free Website & SEO Audit Instantly</h1>
+    <p>Input your website URL below. AlphaMan will immediately generate a report highlighting all key areas for improvement.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="card">
+    <form id="auditForm">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="John Smith" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="john@company.com" required>
+      </div>
+      <div class="form-group">
+        <label for="company">Company Name</label>
+        <input type="text" id="company" name="company" placeholder="Your Company Ltd">
+      </div>
+      <div class="form-group">
+        <label for="website">Website URL</label>
+        <input type="url" id="website" name="website" placeholder="https://yourwebsite.com" required>
+      </div>
+      <button type="submit" class="btn">Submit for Free Audit</button>
+    </form>
+    <div class="success" id="successMsg">
+      Thank you. Your website audit request has been received. Our team will send your report within 24 hours.
+    </div>
+  </div>
+  <div class="brand">
+    <span class="logo-text">AlphaMan</span> · salvador4437.softr.app
+  </div>
+</div>
+
+<script>
+document.getElementById('auditForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  // Collect form data
+  const data = {
+    name: document.getElementById('name').value,
+    email: document.getElementById('email').value,
+    company: document.getElementById('company').value,
+    website: document.getElementById('website').value,
+    date: new Date().toISOString().split('T')[0]
+  };
+  
+  // Show success then redirect
+  document.getElementById('auditForm').style.display = 'none';
+  document.getElementById('successMsg').classList.add('show');
+  
+  // Redirect to success page after 2 seconds
+  setTimeout(function() {
+    window.location.href = '/success.html';
+  }, 2000);
+  
+  console.log('Audit submitted:', data);
+  // TODO: Post to Google Sheets webhook → Leads_Capture tab
+});
+</script>
+
+</body>
+</html>
