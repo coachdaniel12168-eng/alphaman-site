@@ -4,35 +4,48 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Privacy Policy — AlphaMan</title>
 <style>
-:root { --dark: #1e293b; }
+:root { --primary: #2563eb; --dark: #1e293b; --light: #f8fafc; }
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f8fafc; color: var(--dark); line-height:1.7; }
-.container { max-width: 700px; margin: 0 auto; padding: 40px 24px; }
-h1 { color: #2563eb; margin-bottom: 24px; }
-h2 { margin: 24px 0 12px; font-size: 1.2em; }
-p { margin-bottom: 12px; color: #475569; }
-a { color: #2563eb; }
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--light); color: var(--dark); display:flex; flex-direction:column; min-height:100vh; line-height:1.7; }
+.header { background: var(--dark); color: white; padding: 0 24px; display:flex; align-items:center; justify-content:space-between; height:64px; flex-shrink:0; }
+.header .logo { font-size:1.3em; font-weight:700; color:var(--primary); text-decoration:none; }
+.header nav { display:flex; gap:24px; }
+.header nav a { color:#cbd5e1; text-decoration:none; font-size:.9em; }
+.header nav a:hover { color:white; }
+.main { flex:1; padding:40px 24px; max-width:700px; margin:0 auto; }
+h1 { color:var(--primary); margin-bottom:20px; }
+h2 { margin:20px 0 10px; font-size:1.15em; }
+p { color:#475569; margin-bottom:10px; }
+a { color:var(--primary); }
+.footer { background:var(--dark); color:#94a3b8; text-align:center; padding:20px 24px; font-size:.85em; flex-shrink:0; }
+.footer a { color:var(--primary); text-decoration:none; margin:0 8px; }
 </style>
 </head>
 <body>
-<div class="container">
+<header class="header">
+  <a href="/" class="logo">AlphaMan</a>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/hire.html">Hire Talent</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+  </nav>
+</header>
+<main class="main">
 <h1>Privacy Policy</h1>
 <p>Last updated: June 19, 2026</p>
-<p>AlphaMan ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use our website and services.</p>
-
+<p>AlphaMan ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use our recruitment and talent services.</p>
 <h2>Information We Collect</h2>
-<p>When you submit a website audit request, we collect: your name, email address, company name, and website URL. We use this information solely to generate and deliver your audit report.</p>
-
+<p>When you submit a hiring request, we collect: your name, email address, company name, and target role. We use this information solely to match candidates and deliver recruitment services.</p>
 <h2>How We Use Your Information</h2>
-<p>We use the information you provide to: generate your website audit report, communicate with you about your request, and improve our services. We do not sell, trade, or rent your personal information to third parties.</p>
-
-<h2>Data Security</h2>
-<p>We implement appropriate security measures to protect your personal information. However, no method of transmission over the Internet is 100% secure.</p>
-
+<p>We use your information to: match and vet candidates for your roles, communicate about your hiring requests, and improve our services. We do not sell, trade, or rent your personal information to third parties.</p>
 <h2>Contact</h2>
-<p>For questions about this Privacy Policy, contact us at: coachdaniel.12168@gmail.com</p>
-
+<p>For questions: coachdaniel.12168@gmail.com</p>
 <p><a href="/">Back to AlphaMan</a></p>
-</div>
+</main>
+<footer class="footer">
+  AlphaMan — AI-Vetted Talent Solutions &copy; 2026 &nbsp;|&nbsp;
+  <a href="/privacy.html">Privacy</a> <a href="/terms.html">Terms</a>
+</footer>
 </body>
 </html>
