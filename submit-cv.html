@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Submit Your CV — AlphaMan</title>
+<title>Submit Candidate Profile — AlphaMan</title>
 <style>
-:root { --primary: #2563eb; --dark: #1e293b; --light: #f8fafc; --orange: #ea580c; }
+:root { --primary: #2563eb; --dark: #1e293b; --light: #f8fafc; --orange: #ea580c; --teal: #0d9488; }
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--light); color: var(--dark); display:flex; flex-direction:column; min-height:100vh; line-height:1.7; }
 .header { background: var(--dark); color: white; padding: 0 24px; display:flex; align-items:center; justify-content:space-between; height:64px; flex-shrink:0; }
@@ -12,12 +12,20 @@ body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--light);
 .header nav { display:flex; gap:24px; }
 .header nav a { color:#cbd5e1; text-decoration:none; font-size:.9em; }
 .header nav a:hover { color:white; }
-.main { flex:1; padding:60px 24px; max-width:800px; margin:0 auto; width:100%; }
-h1 { font-size:2em; color:var(--dark); margin-bottom:16px; }
-p { color:#475569; margin-bottom:14px; font-size:1.05em; }
-.placeholder { background:white; border-radius:12px; padding:32px; box-shadow:0 2px 12px rgba(0,0,0,0.06); margin-top:24px; }
-.placeholder p { color:#94a3b8; font-style:italic; }
-.btn-primary { display:inline-block; padding:12px 24px; background:var(--orange); color:white; text-decoration:none; border-radius:8px; font-weight:600; margin-top:12px; }
+.main { flex:1; padding:60px 24px; max-width:700px; margin:0 auto; width:100%; }
+h1 { font-size:2em; color:var(--dark); margin-bottom:8px; }
+.subtitle { color:#64748b; margin-bottom:32px; font-size:1.05em; }
+h2 { color:var(--primary); margin:28px 0 12px; font-size:1.2em; }
+p, li { color:#475569; margin-bottom:14px; }
+.card { background:white; border-radius:12px; padding:28px; box-shadow:0 2px 12px rgba(0,0,0,0.06); margin-bottom:20px; }
+.card h3 { color:var(--dark); margin-bottom:6px; }
+.form-group { margin-bottom:16px; }
+.form-group label { display:block; font-weight:600; margin-bottom:5px; }
+.form-group input, .form-group select, .form-group textarea { width:100%; padding:12px 14px; border:2px solid #e2e8f0; border-radius:10px; font-size:1em; font-family:inherit; }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline:none; border-color:var(--primary); }
+.btn { width:100%; padding:14px; background:var(--orange); color:white; border:none; border-radius:10px; font-size:1.05em; font-weight:600; cursor:pointer; }
+.success { display:none; background:#d1fae5; color:#065f46; padding:16px; border-radius:10px; text-align:center; margin-top:16px; font-weight:600; }
+.success.show { display:block; }
 .footer { background:var(--dark); color:#94a3b8; text-align:center; padding:20px 24px; font-size:.85em; flex-shrink:0; }
 .footer a { color:var(--primary); text-decoration:none; margin:0 8px; }
 </style>
@@ -28,21 +36,59 @@ p { color:#475569; margin-bottom:14px; font-size:1.05em; }
   <nav>
     <a href="./">Home</a>
     <a href="hire.html">Hire Talent</a>
+    <a href="job-listings.html">Jobs</a>
+    <a href="submit-cv.html">Submit CV</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
     <a href="privacy.html">Privacy</a>
-    <a href="terms.html">Terms</a>
   </nav>
 </header>
+
 <main class="main">
-<h1>Submit Your CV</h1>
-<p>Upload your resume and let AlphaMan's AI match you with top employers. Your profile is anonymous until you approve a match.</p>
-<div class="placeholder">
-  <p>Full content for this page is being prepared. This placeholder establishes the page structure for the AlphaMan HR portal.</p>
-  <a href="hire.html" class="btn-primary">Submit a Hiring Request →</a>
+<h1>Submit Candidate Profile to the AlphaMan Talent Pool</h1>
+<p class="subtitle">Our automated screening system parses your professional background against active enterprise requisitions to optimize matching accuracy for executive, technical, and permanent corporate placements.</p>
+
+<div class="card">
+  <h3>How the Talent Pool Works</h3>
+  <ol style="margin:10px 0 0 20px; color:#475569;">
+    <li>Submit your professional profile using the form below. Include your current role, target position, and key certifications.</li>
+    <li>AlphaMan's AI screening engine parses your professional background against all active enterprise requisitions in our network.</li>
+    <li>When your profile matches an open position, you receive a notification with role details and the option to approve release of your anonymized profile to the hiring organization.</li>
+    <li>Your identity and current employer information remain confidential until you explicitly approve a match.</li>
+  </ol>
 </div>
+
+<h2>Submit Your Profile</h2>
+<form id="cvForm">
+  <div class="form-group"><label for="name">Full Name</label><input type="text" id="name" placeholder="Your legal full name" required></div>
+  <div class="form-group"><label for="email">Email Address</label><input type="email" id="email" placeholder="you@email.com" required></div>
+  <div class="form-group"><label for="currentRole">Current / Most Recent Role</label><input type="text" id="currentRole" placeholder="e.g. Senior Product Manager" required></div>
+  <div class="form-group"><label for="targetRole">Target Role / Position Sought</label><input type="text" id="targetRole" placeholder="e.g. Director of Product" required></div>
+  <div class="form-group">
+    <label for="experience">Years of Professional Experience</label>
+    <select id="experience"><option>1-3 years</option><option>4-7 years</option><option selected>8-12 years</option><option>13-20 years</option><option>20+ years</option></select>
+  </div>
+  <div class="form-group">
+    <label for="industry">Primary Industry</label>
+    <select id="industry"><option>Technology / IT</option><option>Banking & Finance</option><option>Professional Services</option><option>Healthcare</option><option>Manufacturing</option><option>Retail & E-Commerce</option><option>Energy & Utilities</option><option>Other</option></select>
+  </div>
+  <div class="form-group"><label for="certifications">Key Certifications (comma-separated)</label><input type="text" id="certifications" placeholder="e.g. PMP, AWS Solutions Architect, CFA"></div>
+  <button type="submit" class="btn">Submit Profile to Talent Pool</button>
+</form>
+<div class="success" id="successMsg">Profile submitted. AlphaMan's AI engine will match your background against active enterprise requisitions. You will be notified when a match is identified.</div>
 </main>
+
 <footer class="footer">
   AlphaMan — AI-Vetted Talent Solutions &copy; 2026 &nbsp;|&nbsp;
   <a href="privacy.html">Privacy</a> <a href="terms.html">Terms</a>
 </footer>
+
+<script>
+document.getElementById('cvForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  document.getElementById('cvForm').style.display = 'none';
+  document.getElementById('successMsg').classList.add('show');
+});
+</script>
 </body>
 </html>
