@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AlphaMan — AI-Vetted Talent Solutions</title>
+<style>
+:root { --primary: #2563eb; --dark: #1e293b; --light: #f8fafc; --orange: #ea580c; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--light); color: var(--dark); display:flex; flex-direction:column; min-height:100vh; }
+.header { background: var(--dark); color: white; padding: 0 24px; display:flex; align-items:center; justify-content:space-between; height:64px; flex-shrink:0; }
+.header .logo { font-size:1.3em; font-weight:700; color:var(--primary); text-decoration:none; }
+.header nav { display:flex; gap:24px; }
+.header nav a { color:#cbd5e1; text-decoration:none; font-size:.9em; }
+.header nav a:hover { color:white; }
+.main { flex:1; }
+.hero { text-align:center; padding:80px 24px 60px; background:linear-gradient(135deg, var(--dark), #0f172a); color:white; }
+.hero h1 { font-size:2.4em; margin-bottom:12px; }
+.hero h1 span { color: var(--primary); }
+.hero p { font-size:1.15em; opacity:0.9; max-width:600px; margin:0 auto 28px; }
+.hero .btn { display:inline-block; padding:14px 36px; background:var(--orange); color:white; text-decoration:none; border-radius:10px; font-weight:600; font-size:1.05em; }
+.hero .btn:hover { background:#c2410c; }
+.packages { padding:60px 24px; max-width:1000px; margin:0 auto; }
+.packages h2 { text-align:center; font-size:1.8em; margin-bottom:32px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; }
+.card { background:white; border-radius:12px; padding:28px; box-shadow:0 2px 12px rgba(0,0,0,0.06); }
+.card h3 { color:var(--primary); margin-bottom:8px; }
+.card .price { font-size:1.5em; font-weight:700; color:var(--dark); margin:10px 0; }
+.card p { color:#64748b; font-size:.9em; line-height:1.5; }
+.card .discount { color:var(--orange); font-weight:600; font-size:.85em; }
+.footer { background:var(--dark); color:#94a3b8; text-align:center; padding:20px 24px; font-size:.85em; flex-shrink:0; }
+.footer a { color:var(--primary); text-decoration:none; margin:0 8px; }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <a href="/" class="logo">AlphaMan</a>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/hire.html">Hire Talent</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+  </nav>
+</header>
+
+<main class="main">
+  <section class="hero">
+    <h1>Find and Vet <span>Top-Tier Talent</span> Instantly</h1>
+    <p>AlphaMan leverages AI-vetted candidate screening to match the perfect professionals for your team. Submit your requirements and get matched profiles within 24 hours.</p>
+    <a href="/hire.html" class="btn">Submit Hiring Request</a>
+  </section>
+
+  <section class="packages">
+    <h2>Recruitment Packages</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Employment Pass (EP) EA Strategy & Filing</h3>
+        <div class="price">$2,520</div>
+        <div class="discount">$1,890 — 25% off first 3 months</div>
+        <p>Complete COMPASS criteria auditing, salary benchmarking, and credential verification handled end-to-end.</p>
+      </div>
+      <div class="card">
+        <h3>S Pass EA Quota Management & Filing</h3>
+        <div class="price">$1,890</div>
+        <div class="discount">$1,418 — 25% off first 3 months</div>
+        <p>MOM local headcount dependency audits, quota calculation, and levy optimization frameworks.</p>
+      </div>
+      <div class="card">
+        <h3>10-Profile Unlock Pack</h3>
+        <div class="price">$200</div>
+        <div class="discount">$150 — 25% off first 3 months</div>
+        <p>Frictionless, anonymous talent access. Unlock contact details for 10 vetted local Singaporean candidates instantly.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  AlphaMan — AI-Vetted Talent Solutions &copy; 2026 &nbsp;|&nbsp;
+  <a href="/privacy.html">Privacy</a> <a href="/terms.html">Terms</a>
+</footer>
+
+</body>
+</html>
