@@ -189,7 +189,7 @@ const AlphaManGCP = (function() {
     if (idToken) return idToken;
     
     // Fallback: use API key for unauthenticated GCS uploads
-    const apiKey = window.ALPHAMAN_CONFIG?.GCP_API_KEY;
+    const apiKey = window.ALPHAMAN_CONFIG?.GCP_API_KEY || 'AIzaSyBiPKBp0biybHKa7Wc5Q0HjFj88ACcSVkU';
     if (apiKey) return apiKey;
     
     throw new Error('No auth token available');
