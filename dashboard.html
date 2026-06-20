@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enterprise Dashboard — AlphaMan</title>
+<style>
+:root { --primary: #2563eb; --dark: #1e293b; --light: #f8fafc; --orange: #ea580c; --teal: #0d9488; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Segoe UI',system-ui,sans-serif; background:var(--light); color:var(--dark); display:flex; flex-direction:column; min-height:100vh; }
+.header { background:var(--dark); color:white; padding:0 24px; display:flex; align-items:center; justify-content:space-between; height:64px; flex-shrink:0; }
+.header .logo { font-size:1.3em; font-weight:700; color:var(--primary); text-decoration:none; }
+.header nav { display:flex; gap:24px; }
+.header nav a { color:#cbd5e1; text-decoration:none; font-size:.9em; }
+.header nav a:hover { color:white; }
+.main { flex:1; padding:40px 24px; max-width:1200px; margin:0 auto; width:100%; }
+h1 { font-size:2em; margin-bottom:8px; }
+.subtitle { color:#64748b; margin-bottom:32px; }
+.kpi-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:16px; margin-bottom:32px; }
+.kpi { background:white; border-radius:12px; padding:24px; box-shadow:0 2px 12px rgba(0,0,0,0.06); text-align:center; }
+.kpi .value { font-size:2.2em; font-weight:700; color:var(--primary); }
+.kpi .label { color:#64748b; font-size:.9em; margin-top:4px; }
+.kpi .change { font-size:.8em; margin-top:4px; }
+.change-up { color:#065f46; }
+.change-down { color:#991b1b; }
+.dashboard-section { background:white; border-radius:12px; padding:24px; box-shadow:0 2px 12px rgba(0,0,0,0.06); margin-bottom:24px; }
+.dashboard-section h2 { margin-bottom:16px; color:var(--dark); }
+.iframe-container { position:relative; overflow:hidden; padding-top:56.25%; border-radius:8px; background:#f1f5f9; }
+.iframe-container iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:none; }
+.placeholder-chart { height:300px; background:linear-gradient(135deg, #f1f5f9, #e2e8f0); border-radius:8px; display:flex; align-items:center; justify-content:center; color:#94a3b8; font-size:1.1em; }
+.footer { background:var(--dark); color:#94a3b8; text-align:center; padding:20px 24px; font-size:.85em; flex-shrink:0; }
+.footer a { color:var(--primary); text-decoration:none; margin:0 8px; }
+table { width:100%; border-collapse:collapse; }
+th,td { padding:10px 14px; text-align:left; border-bottom:1px solid #e2e8f0; font-size:.9em; }
+th { background:#f8fafc; font-weight:600; }
+</style>
+</head>
+<body>
+<header class="header">
+  <a href="./" class="logo">AlphaMan</a>
+  <nav>
+    <a href="./">Home</a>
+    <a href="hire.html">Hire Talent</a>
+    <a href="job-listings.html">Jobs</a>
+    <a href="submit-cv.html">Submit CV</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Privacy</a>
+  </nav>
+</header>
+
+<main class="main">
+<h1>Enterprise Operations Dashboard</h1>
+<p class="subtitle">Real-time recruitment metrics powered by Google BigQuery & Looker Studio</p>
+
+<!-- KPI Row -->
+<div class="kpi-grid">
+  <div class="kpi"><div class="value">87%</div><div class="label">Fulfillment Rate</div><div class="change change-up">↑ 12% vs last month</div></div>
+  <div class="kpi"><div class="value">1,247</div><div class="label">Active Applicants</div><div class="change change-up">↑ 23% vs last month</div></div>
+  <div class="kpi"><div class="value">34</div><div class="label">Open Positions</div><div class="change change-down">↓ 5 this week</div></div>
+  <div class="kpi"><div class="value">18.4d</div><div class="label">Avg Time-to-Fill</div><div class="change change-up">↑ 2.1d vs last month</div></div>
+  <div class="kpi"><div class="value">94%</div><div class="label">Client Retention</div><div class="change change-up">↑ 3% vs last quarter</div></div>
+</div>
+
+<!-- Looker Studio Embed -->
+<div class="dashboard-section">
+  <h2>Google Looker Studio — Recruitment Analytics</h2>
+  <p style="color:#64748b;font-size:.9em;margin-bottom:16px">Connect your Looker Studio report: Publish → Embed → paste the iframe URL below.</p>
+  <div class="placeholder-chart">
+    Google Looker Studio Dashboard — Embed URL pending. Generate report at lookerstudio.google.com, click Share → Embed, paste URL here.
+  </div>
+</div>
+
+<!-- Real-time Job Status -->
+<div class="dashboard-section">
+  <h2>Real-Time Job Status Tracking</h2>
+  <p style="color:#64748b;font-size:.9em;margin-bottom:16px">Auto-refreshes from Google BigQuery `job_postings` table via Vertex AI-triggered Cloud Function.</p>
+  <table id="jobTable">
+    <tr><th>Position</th><th>Company</th><th>Applicants</th><th>Status</th><th>Days Left</th></tr>
+  </table>
+</div>
+
+<!-- Match Engine Activity -->
+<div class="dashboard-section">
+  <h2>Vertex AI Match Engine — Recent Activity</h2>
+  <p style="color:#64748b;font-size:.9em;margin-bottom:16px">Two-way candidate-employer matching. Cloud Function triggered on CV deposit or job posting.</p>
+  <table id="matchTable">
+    <tr><th>Timestamp</th><th>Trigger</th><th>Match Type</th><th>Candidates Matched</th><th>Status</th></tr>
+  </table>
+</div>
+</main>
+
+<footer class="footer">
+  AlphaMan — AI-Vetted Talent Solutions &copy; 2026 &nbsp;|&nbsp;
+  <a href="privacy.html">Privacy</a> <a href="terms.html">Terms</a>
+</footer>
+
+<script>
+// Simulated real-time data (in production: fetched from BigQuery via Cloud Function)
+const jobData = [
+  { position:"Senior AI Engineer", company:"TechScale Singapore", applicants:47, status:"Active", daysLeft:25 },
+  { position:"VP Enterprise Sales", company:"CloudBase", applicants:23, status:"Urgent", daysLeft:5 },
+  { position:"Director of Operations", company:"Asia Pacific Bank", applicants:31, status:"Active", daysLeft:40 },
+  { position:"Head of Compliance", company:"NeoPay Digital Bank", applicants:18, status:"Active", daysLeft:42 },
+  { position:"Cloud Architect", company:"DataBridge", applicants:52, status:"Closed", daysLeft:0 },
+];
+
+const matchData = [
+  { time:"2026-06-20 11:45", trigger:"CV Deposit", type:"Candidate→Job", matched:3, status:"Complete" },
+  { time:"2026-06-20 10:12", trigger:"Job Posted", type:"Job→Candidate", matched:12, status:"Complete" },
+  { time:"2026-06-20 08:30", trigger:"CV Deposit", type:"Candidate→Job", matched:5, status:"Complete" },
+  { time:"2026-06-19 16:22", trigger:"Job Posted", type:"Job→Candidate", matched:8, status:"Complete" },
+];
+
+document.getElementById('jobTable').innerHTML += jobData.map(j => 
+  `<tr><td>${j.position}</td><td>${j.company}</td><td>${j.applicants}</td><td>${j.status}</td><td>${j.daysLeft}</td></tr>`
+).join('');
+
+document.getElementById('matchTable').innerHTML += matchData.map(m =>
+  `<tr><td>${m.time}</td><td>${m.trigger}</td><td>${m.matchType}</td><td>${m.matched}</td><td>${m.status}</td></tr>`
+).join('');
+</script>
+</body>
+</html>
