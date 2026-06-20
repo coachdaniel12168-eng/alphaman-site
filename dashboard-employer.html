@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Employer Recruitment Dashboard — AlphaMan</title>
+<style>
+:root { --primary: #2563eb; --dark: #1e293b; --light: #f8fafc; --orange: #ea580c; --teal: #0d9488; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Segoe UI',system-ui,sans-serif; background:var(--light); color:var(--dark); display:flex; flex-direction:column; min-height:100vh; line-height:1.7; }
+.header { background:var(--dark); color:white; padding:0 24px; display:flex; align-items:center; justify-content:space-between; height:64px; flex-shrink:0; }
+.header .logo { font-size:1.3em; font-weight:700; color:var(--primary); text-decoration:none; }
+.header nav { display:flex; gap:24px; }
+.header nav a { color:#cbd5e1; text-decoration:none; font-size:.9em; }
+.header nav a:hover { color:white; }
+.main { flex:1; padding:60px 24px; max-width:1000px; margin:0 auto; width:100%; }
+h1 { font-size:2em; color:var(--dark); margin-bottom:8px; }
+.subtitle { color:#64748b; margin-bottom:32px; font-size:1.05em; }
+h2 { color:var(--primary); margin:28px 0 12px; font-size:1.3em; }
+h3 { color:var(--dark); margin:20px 0 8px; }
+p,li { color:#475569; margin-bottom:14px; }
+.card { background:white; border-radius:12px; padding:28px; box-shadow:0 2px 12px rgba(0,0,0,0.06); margin-bottom:20px; }
+.card-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:20px; margin:20px 0; }
+.btn { display:inline-block; padding:12px 28px; background:var(--orange); color:white; text-decoration:none; border-radius:8px; font-weight:600; margin-top:12px; cursor:pointer; border:none; font-size:1em; }
+.btn-blue { background:var(--primary); }
+.btn-teal { background:var(--teal); }
+.btn-google { background:#4285f4; display:flex; align-items:center; gap:10px; justify-content:center; }
+table { width:100%; border-collapse:collapse; margin:16px 0; background:white; border-radius:10px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,0.06); }
+th,td { padding:12px 14px; text-align:left; border-bottom:1px solid #e2e8f0; font-size:.9em; }
+th { background:var(--dark); color:white; }
+.footer { background:var(--dark); color:#94a3b8; text-align:center; padding:20px 24px; font-size:.85em; flex-shrink:0; }
+.footer a { color:var(--primary); text-decoration:none; margin:0 8px; }
+.kpi { background:white; border-radius:12px; padding:24px; box-shadow:0 2px 12px rgba(0,0,0,0.06); text-align:center; }
+.kpi .value { font-size:2.2em; font-weight:700; color:var(--primary); }
+.kpi .label { color:#64748b; font-size:.9em; }
+.badge { display:inline-block; padding:3px 10px; border-radius:12px; font-size:.75em; font-weight:600; }
+.badge-green { background:#d1fae5; color:#065f46; }
+.badge-yellow { background:#fff3cd; color:#856404; }
+.badge-red { background:#fee2e2; color:#991b1b; }
+.badge-blue { background:#dbeafe; color:#1e40af; }
+input,select,textarea { font-family:inherit; }
+</style>
+</head>
+<body>
+<header class="header">
+  <a href="./" class="logo">AlphaMan</a>
+  <nav>
+    <a href="./">Home</a>
+    <a href="hire.html">Hire Talent</a>
+    <a href="job-listings.html">Jobs</a>
+    <a href="submit-cv.html">Submit CV</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Privacy</a>
+  </nav>
+</header>
+<main class="main">
+
+<h1>Employer Recruitment Command Center</h1>
+<p class="subtitle">Active requisitions, applicant tracking, and real-time analytics. Powered by Google BigQuery & Looker Studio.</p>
+
+<div class="card-grid" style="grid-template-columns:repeat(5,1fr)">
+  <div class="kpi"><div class="value">8</div><div class="label">Active Requisitions</div></div>
+  <div class="kpi"><div class="value">247</div><div class="label">Total Applicants</div></div>
+  <div class="kpi"><div class="value">87%</div><div class="label">Fulfillment Rate</div></div>
+  <div class="kpi"><div class="value">18.4d</div><div class="label">Avg Time-to-Fill</div></div>
+  <div class="kpi"><div class="value">94%</div><div class="label">Quality Score</div></div>
+</div>
+
+<h2>Active Requisitions</h2>
+<table>
+<tr><th>Position</th><th>Applicants</th><th>Shortlisted</th><th>Interview</th><th>Offer</th><th>Days Open</th><th>Status</th></tr>
+<tr><td>Senior AI Engineer</td><td>47</td><td>12</td><td>5</td><td>1</td><td>25</td><td><span class="badge badge-green">Active</span></td></tr>
+<tr><td>VP Enterprise Sales (APAC)</td><td>23</td><td>8</td><td>3</td><td>0</td><td>15</td><td><span class="badge badge-red">Urgent</span></td></tr>
+<tr><td>Director of Operations</td><td>31</td><td>10</td><td>4</td><td>0</td><td>30</td><td><span class="badge badge-green">Active</span></td></tr>
+<tr><td>Head of Compliance</td><td>18</td><td>6</td><td>2</td><td>0</td><td>10</td><td><span class="badge badge-green">Active</span></td></tr>
+</table>
+
+<h2>Google Looker Studio — Live Analytics</h2>
+<div class="card" style="text-align:center;padding:40px">
+  <p style="color:#94a3b8;margin-bottom:8px">Looker Studio iframe embed — Publish your report, click Share → Embed, paste the URL below.</p>
+  <p style="font-size:.85em;color:#94a3b8">Charts: Fulfillment Rate trend, Applicant funnel, Time-to-fill by department, Source channel breakdown</p>
+</div>
+
+<h2>Recent Applicant Activity</h2>
+<table>
+<tr><th>Candidate</th><th>Position</th><th>Match Score</th><th>Applied</th><th>Action</th></tr>
+<tr><td>Sarah Chen</td><td>Senior AI Engineer</td><td><span class="badge badge-green">94%</span></td><td>2 hours ago</td><td><a href="#" class="btn btn-teal" style="font-size:.8em;padding:6px 14px">Review</a></td></tr>
+<tr><td>Mark Tan</td><td>VP Enterprise Sales</td><td><span class="badge badge-green">89%</span></td><td>5 hours ago</td><td><a href="#" class="btn btn-teal" style="font-size:.8em;padding:6px 14px">Review</a></td></tr>
+<tr><td>Priya Kumar</td><td>Head of Compliance</td><td><span class="badge badge-yellow">78%</span></td><td>1 day ago</td><td><a href="#" class="btn btn-teal" style="font-size:.8em;padding:6px 14px">Review</a></td></tr>
+</table>
+
+<a href="hire.html" class="btn">Post New Requisition</a>
+</main>
+<footer class="footer">
+  AlphaMan — AI-Vetted Talent Solutions &copy; 2026 &nbsp;|&nbsp;
+  <a href="privacy.html">Privacy</a> <a href="terms.html">Terms</a>
+</footer>
+</body>
+</html>

@@ -24,6 +24,11 @@ p, li { color:#475569; margin-bottom:14px; }
 .form-group input, .form-group select, .form-group textarea { width:100%; padding:12px 14px; border:2px solid #e2e8f0; border-radius:10px; font-size:1em; font-family:inherit; }
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline:none; border-color:var(--primary); }
 .btn { width:100%; padding:14px; background:var(--orange); color:white; border:none; border-radius:10px; font-size:1.05em; font-weight:600; cursor:pointer; }
+.file-upload { border:2px dashed #cbd5e1; border-radius:10px; padding:24px; text-align:center; margin-bottom:16px; cursor:pointer; transition:border .2s; }
+.file-upload:hover { border-color:var(--primary); }
+.file-upload input { display:none; }
+.file-upload .upload-text { color:#64748b; font-size:.9em; }
+.file-upload .file-name { color:var(--primary); font-weight:600; margin-top:8px; display:none; }
 .success { display:none; background:#d1fae5; color:#065f46; padding:16px; border-radius:10px; text-align:center; margin-top:16px; font-weight:600; }
 .success.show { display:block; }
 .footer { background:var(--dark); color:#94a3b8; text-align:center; padding:20px 24px; font-size:.85em; flex-shrink:0; }
@@ -74,6 +79,14 @@ p, li { color:#475569; margin-bottom:14px; }
     <select id="industry"><option>Technology / IT</option><option>Banking & Finance</option><option>Professional Services</option><option>Healthcare</option><option>Manufacturing</option><option>Retail & E-Commerce</option><option>Energy & Utilities</option><option>Other</option></select>
   </div>
   <div class="form-group"><label for="certifications">Key Certifications (comma-separated)</label><input type="text" id="certifications" placeholder="e.g. PMP, AWS Solutions Architect, CFA"></div>
+  
+  <div class="file-upload" onclick="document.getElementById('cvFile').click()">
+    <div class="upload-text">📎 Drop your CV here or click to browse</div>
+    <div style="font-size:.8em;color:#94a3b8;margin-top:4px">Accepted: PDF, DOC, DOCX (Max 10MB)</div>
+    <div class="file-name" id="fileName"></div>
+    <input type="file" id="cvFile" accept=".pdf,.doc,.docx" onchange="handleFileSelect(event)">
+  </div>
+  
   <button type="submit" class="btn">Submit Profile to Talent Pool</button>
 </form>
 <div class="success" id="successMsg">Profile submitted. AlphaMan's AI engine will match your background against active enterprise requisitions. You will be notified when a match is identified.</div>
@@ -90,6 +103,18 @@ document.getElementById('cvForm').addEventListener('submit', function(e) {
   document.getElementById('cvForm').style.display = 'none';
   document.getElementById('successMsg').classList.add('show');
 });
+
+function handleFileSelect(event) {
+  const file = event.target.files[0];
+  if (file) {
+    const nameEl = document.getElementById('fileName');
+    nameEl.textContent = '📄 ' + file.name + ' (' + (file.size / 1024).toFixed(0) + ' KB)';
+    nameEl.style.display = 'block';
+    // In production: upload to Google Cloud Storage bucket (ket-documents)
+    // const formData = new FormData(); formData.append('file', file);
+    // fetch('https://storage.googleapis.com/upload/...', { method:'POST', body: formData });
+  }
+}
 </script>
 </body>
 </html>
