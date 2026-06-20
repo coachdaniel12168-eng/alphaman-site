@@ -97,9 +97,42 @@ p, li { color:#475569; margin-bottom:14px; }
   <a href="privacy.html">Privacy</a> <a href="terms.html">Terms</a>
 </footer>
 
+<script src="gcp-integration.js"></script>
 <script>
+AlphaManGCP.init({
+  GCP_PROJECT_ID: '1072744478986',
+  GCS_BUCKET: 'alphaman-cv-intake',
+  BIGQUERY_DATASET: 'alphaman_production',
+  GCP_API_KEY: 'YOUR_API_KEY' // Replace with API key from GCP → APIs & Services → Credentials
+});
+
 document.getElementById('cvForm').addEventListener('submit', function(e) {
   e.preventDefault();
+  
+  // Upload CV to GCS
+  const fileInput = document.getElementById('cvFile');
+  if (fileInput.files[0]) {
+    const candidateId = 'cand_' + Date.now();
+    AlphaManGCP.uploadCV(fileInput.files[0], candidateId).then(result => {
+      console.log('CV uploaded:', result);
+    }).catch(err => {
+      console.error('Upload failed, proceeding without GCS:', err);
+    });
+  }
+  
+  // Log to BigQuery
+  AlphaManGCP.logToBigQuery('candidate_profiles', {
+    candidate_id: 'cand_' + Date.now(),
+    full_name: document.getElementById('name').value,
+    email: document.getElementById('email').value,
+    current_role: document.getElementById('currentRole').value,
+    target_role: document.getElementById('targetRole').value,
+    years_experience: document.getElementById('experience').value,
+    industry: document.getElementById('industry').value,
+    submitted_at: new Date().toISOString(),
+    status: 'active'
+  });
+  
   document.getElementById('cvForm').style.display = 'none';
   document.getElementById('successMsg').classList.add('show');
 });

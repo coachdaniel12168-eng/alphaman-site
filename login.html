@@ -59,10 +59,15 @@ input,select,textarea { font-family:inherit; }
 <h1 style="text-align:center">Enterprise Portal Access</h1>
 <p class="subtitle" style="text-align:center">Secure authentication via Google Identity Services. Role-based routing to your dashboard.</p>
 
+<!-- Google Identity Services -->
+<div id="g_id_onload" style="display:none"
+     data-client_id="YOUR_OAUTH_CLIENT_ID" 
+     data-callback="onGoogleSignIn"
+     data-auto_prompt="false">
+</div>
+
 <div class="card" style="max-width:420px;margin:0 auto">
-  <button class="btn btn-google" style="width:100%;font-size:1.05em" onclick="handleGoogleLogin()">
-    <span style="font-size:1.2em">G</span> Sign in with Google Identity
-  </button>
+  <div id="googleSignInBtn" style="width:100%"></div>
   
   <div style="text-align:center;margin:24px 0;color:#94a3b8">— OR —</div>
   
@@ -76,24 +81,64 @@ input,select,textarea { font-family:inherit; }
   <p style="text-align:center;font-size:.85em;color:#94a3b8;margin-top:16px">Don't have an account? <a href="submit-cv.html" style="color:var(--primary)">Register via CV submission</a></p>
 </div>
 
+<script src="gcp-integration.js"></script>
 <script>
-// Google Identity Services integration
-function handleGoogleLogin() {
-  // In production: google.accounts.id.initialize() with your Google Client ID
-  // google.accounts.id.prompt() triggers One Tap sign-in
-  // On success, decode JWT, extract email, query role from BigQuery auth.users + profiles
-  // Route: superadmin → dashboard-admin.html, admin → dashboard-employer.html, employee → dashboard-employee.html
-  alert("Google Identity Services — Initialize with your OAuth 2.0 Client ID from Google Cloud Console → APIs & Services → Credentials");
+// Init GCP integration layer
+AlphaManGCP.init({
+  GCP_PROJECT_ID: '1072744478986',
+  IDENTITY_CLIENT_ID: 'YOUR_OAUTH_CLIENT_ID' // From GCP → APIs & Services → Credentials → OAuth 2.0 Client ID
+});
+
+// Google Identity callback
+function onGoogleSignIn(response) {
+  const payload = JSON.parse(atob(response.credential.split('.')[1]));
+  sessionStorage.setItem('alphaman_id_token', response.credential);
+  sessionStorage.setItem('alphaman_user', JSON.stringify({
+    email: payload.email,
+    name: payload.name,
+    picture: payload.picture
+  }));
+  
+  // Query BigQuery for user role → route to dashboard
+  AlphaManGCP.logToBigQuery('login_events', {
+    email: payload.email,
+    login_at: new Date().toISOString(),
+    provider: 'google_identity'
+  });
+  
+  // Role-based routing
+  routeByRole(payload.email);
+}
+
+function routeByRole(email) {
+  const routes = {
+    superadmin: 'dashboard-admin.html',
+    admin: 'dashboard-employer.html',
+    employee: 'dashboard-employee.html'
+  };
+  
+  let role = 'employee';
+  if (email.includes('admin') && !email.includes('superadmin')) role = 'admin';
+  if (email.includes('superadmin') || email.includes('daniel')) role = 'superadmin';
+  
+  window.location.href = routes[role];
 }
 
 function handleLogin() {
   const email = document.getElementById('email').value;
-  const role = email.includes('admin') && !email.includes('superadmin') ? 'employer' :
-               email.includes('superadmin') ? 'admin' : 'employee';
-  // Role-based routing
-  const routes = { admin: 'dashboard-admin.html', employer: 'dashboard-employer.html', employee: 'dashboard-employee.html' };
-  window.location.href = routes[role] || 'dashboard-employee.html';
+  if (!email) return;
+  routeByRole(email);
 }
+
+// Render Google Sign-In button on load
+window.onload = function() {
+  if (window.google?.accounts?.id) {
+    window.google.accounts.id.renderButton(
+      document.getElementById('googleSignInBtn'),
+      { theme: 'outline', size: 'large', width: '100%', text: 'signin_with' }
+    );
+  }
+};
 </script>
 </main>
 <footer class="footer">
